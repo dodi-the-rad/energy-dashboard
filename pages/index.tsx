@@ -1,17 +1,22 @@
-import { lazy } from 'react';
+import { lazy, Suspense } from 'react';
 import Head from 'next/head';
+
+import Spinner from '@/components/spinner';
 
 import styles from '@/styles/Home.module.css';
 
-let RemoteTitle: any = ()=>null;
-if (process.browser) {
-   RemoteTitle = lazy(() => {
-      return import('energyservicereact/energyservicereact');
-    }
-  );
-}
+// let RemoteServiceReactHome: any = ()=>null;
+// if (process.browser) {
+//   RemoteServiceReactHome = lazy(() => {
+//     return import('checkout/title');
+//   });
+//   console.log("czxv", import('checkout/title'));
+// }
+import('checkout/checkout').then((mod) => {
+  console.log("mod", mod);
+});
 
-export default function Home() {
+const Home = () => {
   return (
     <>
       <Head>
@@ -22,8 +27,12 @@ export default function Home() {
       </Head>
       <main className={styles.main}>
         <h1>Dashboard</h1>
-        
+        {/* <Suspense fallback={<Spinner />}>
+          <RemoteServiceReactHome />
+        </Suspense> */}
       </main>
     </>
   )
 }
+
+export default Home;
