@@ -1,30 +1,19 @@
 {
-  "name": "energy-dashboard",
+  "name": "home-v13",
   "version": "0.1.0",
-  "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "dev": "rm -rf .next &&  next dev -p 3000",
+    "build": "next telemetry disable && next build",
+    "start": "next start -p 3000"
   },
   "dependencies": {
-    "@module-federation/nextjs-mf": "^8.1.1",
-    "next": "14.0.4",
-    "react": "^18",
-    "react-dom": "^18",
-    "sass": "^1.69.5",
-    "webpack": "^5.89.0"
+    "@module-federation/nextjs-mf": "^7.0.8",
+    "next": "13.5.6",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "webpack": "5.89.0"
   },
   "devDependencies": {
-    "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
-    "@yourmajestyco/prettier-config": "^0.0.1",
-    "@yourmajestyco/tsconfig": "^0.0.1",
-    "eslint": "^8",
-    "eslint-config-next": "14.0.4",
-    "typescript": "^5"
-  },
-  "prettier": "@yourmajestyco/prettier-config"
+    "cross-env": "7.0.3"
+  }
 }
